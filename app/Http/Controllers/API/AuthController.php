@@ -53,4 +53,13 @@ class AuthController extends Controller
                 'token_type' => 'Bearer'
             ]);
     }
+
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+
+        return [
+            'message' => 'Logout Success. Your access tokens was deleted'
+        ];
+    }
 }
